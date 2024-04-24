@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap>
+	<!--egovMap list 데이터 -->
+	<typeAlias alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias alias="memberVO" type="member.service.MemberVO"/>
+	
+	<insert id="memberDAO.insertMember"> <!--//dao에 설정된 값과 동일하여야한다.-->
+		INSERT INTO MEMBER(USERID,
+						   PASS,
+						   NAME,
+						   GENDER,
+						   BIRTH,
+						   TEL,
+						   ADDRESS)
+					VALUES(#userid#,
+						   #pass#,
+						   #name#,
+						   #gender#,
+						   #birth#,
+						   #tel#,
+						   #address#)	
+	</insert>
+	<select id="memberDAO.selectMemberIdCheck" resultClass="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER
+						WHERE USERID=#userid#
+	</select>
+	
+	<select id="memberDAO.loginProc" resultClass="Integer">
+		SELECT COUNT(*) 
+		  FROM MEMBER
+		 WHERE USERID = #userid#
+		 AND   PASS = #pass#
+	</select>
+	
+	<select id="memberDAO.selectMemberList" resultClass="egovMap">
+		SELECT *
+		FROM MEMBER 
+	
+	</select>
+	
+</sqlMap>
