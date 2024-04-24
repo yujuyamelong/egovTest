@@ -35,7 +35,14 @@
 	</select>
 	
 	<select id="memberDAO.selectMemberList" resultClass="egovMap">
-		SELECT *
+		SELECT ROWNUM,
+			   USERID,
+			   PASS,
+			   NAME,
+			   GENDER,
+			   BIRTH,
+			   TEL,
+			   ADDRESS
 		FROM MEMBER 
 	
 	</select>

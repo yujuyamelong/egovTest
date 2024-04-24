@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -87,7 +87,7 @@ public class MemberController {
 	
 	/*회원목록 화면*/
 	@RequestMapping("/memberList.do")
-	public String selectMemberList(MemberVO vo, Model model) throws Exception {
+	public String selectMemberList(MemberVO vo, ModelMap model) throws Exception {
 		List<?> list = memberService.selectMemberList(vo);
 		model.addAttribute("resultList", list);
 		return "member/memberList";

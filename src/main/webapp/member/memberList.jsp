@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 리스트</title>
 </head>
 <style>
 body {
@@ -41,10 +41,12 @@ caption {
 </style>
 <body>
 	<%@ include file="topMenu.jsp" %>
+	<p>
 	<form>
 	<table>
 		<caption>회원목록</caption>
 		<tr>
+			<th>순번</th>
 			<th>아이디</th>
 			<th>패스워드</th>
 			<th>이름</th>
@@ -55,6 +57,7 @@ caption {
 		</tr>
 		<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
+				<td>${result.rownum}</td>
 				<td>${result.userid}</td>
 				<td>${result.pass}</td>
 				<td>${result.name}</td>
