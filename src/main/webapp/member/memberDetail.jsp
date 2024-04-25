@@ -118,7 +118,7 @@
          </tr>
       </table>
       <div class="div_btn">
-         <button type="button" onclick="location='memberModifyWrite.do?userid=${memberVO.userid}'">수정</button>
+         <button type="button" onclick="location='memberModifyWrite.do?name=${memberVO.name}'">수정</button>
          <button type="button" onclick="location='memberDelete.do?userid=${memberVO.userid}'">삭제</button>
       </div>
    </form>

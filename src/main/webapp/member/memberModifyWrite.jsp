@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,12 +140,13 @@
 </head>
 <body>
 	<%@ include file="topMenu.jsp" %>
-	<form name="frm">
+	<form name="frm" method="POST" action="memberModifySave.do">
 		<table>
-			<caption>회원수정</caption>
+			<caption>회원등록</caption>
 			<tr>
 				<th><label for="userid">아이디</label></th>
-				<td><input type="text" name="userid" id="userid" placeholder="아이디" value="${vo.userid}" readonly>
+				<td><input type="text" name="userid" id="userid" placeholder="아이디" value="${vo.userid }" readonly>
+				<button type="button" id="btn_idChk">중복체크</button>
 				</td>
 			</tr>
 			<tr>
@@ -160,7 +165,7 @@
 					<input type="radio" name="gender" id="gender2" value="f">여
 				</td>
 			</tr>
-			<tr>
+			<tr> 
 				<th><label for="birth">생년월일</label></th>
 				<td>
 					<input type="text" name="birth" id="birth" value="${vo.birth }">
@@ -181,7 +186,6 @@
 		</table>
 		<div class="div_btn">
 			<button type="submit">수정</button>
-			<button type="reset">초기화</button>
 		</div>
 	</form>
 </body>

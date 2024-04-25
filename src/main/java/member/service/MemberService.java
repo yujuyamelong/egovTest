@@ -20,7 +20,8 @@ public interface MemberService {
 	
 	/* 회원삭제 */
 	public int deleteMember(String userid) throws Exception;
-
+	
+	/* 회원 수정 */
 	public int updateMember(MemberVO vo) throws Exception;
 
 }

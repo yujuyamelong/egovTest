@@ -112,9 +112,9 @@ public class MemberController {
 	   
 	   /*회원 수정*/
 	   @RequestMapping("/memberModifyWrite.do")
-	   public String selectMemberModify(String userid, ModelMap model) throws Exception {
+	   public String selectMemberModify(String name, ModelMap model) throws Exception {
 		   
-		   MemberVO vo = memberService.selectMemberDetail(userid);
+		   MemberVO vo = memberService.selectMemberDetail(name);
 		   model.addAttribute("vo", vo);
 		   return "member/memberModifyWrite";
 	   }
@@ -124,11 +124,11 @@ public class MemberController {
 		   String message ="";
 		   int result = memberService.updateMember(vo);
 		   if(result == 1) {
-			   System.out.println("변경 완료");
+			   message = "ok";
 		   } else {
 			   System.out.println("변경 실패");
 		   }
-		   return "";
+		   return message;
 	   }
 	   
 
