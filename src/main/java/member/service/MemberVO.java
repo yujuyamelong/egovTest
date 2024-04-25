@@ -51,7 +51,5 @@ public class MemberVO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
-	
 	
 }

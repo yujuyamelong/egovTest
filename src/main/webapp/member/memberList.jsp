@@ -58,7 +58,7 @@ caption {
 		<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 				<td>${result.rownum}</td>
-				<td>${result.userid}</td>
+				<td><a href="memberDetail.do?name=${result.name}">${result.userid}</a></td>
 				<td>${result.pass}</td>
 				<td>${result.name}</td>
 				<td>${result.gender}</td>

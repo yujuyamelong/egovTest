@@ -47,4 +47,26 @@
 	
 	</select>
 	
+	<select id="memberDAO.selectMemberDetail" resultClass="memberVO">
+      SELECT USERID,
+             PASS,
+             NAME,
+             GENDER,
+             BIRTH,
+             TEL,
+             ADDRESS
+      FROM MEMBER
+      WHERE NAME = #name#   
+   </select>
+   
+   <delete id="memberDAO.deleteMember">
+   		DELETE FROM MEMBER WHERE USERID = #userid#
+   </delete>
+	
+	<update id="memberDAO.updateMember">
+		UPDATE MEMBER 
+		SET PASS = #pass#, NAME = #name#, GENDER = #gender#, BIRTH = #birth#, TEL = #tel#, ADDRESS = #address#
+		WHERE USERID = #userid#
+	</update>
+	
 </sqlMap>

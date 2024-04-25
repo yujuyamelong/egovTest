@@ -12,14 +12,14 @@ import member.service.MemberVO;
 //service 어노테이션 비즈니스 로직을 수행하는 Class라는 것을 나타내는 용도
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
-	
-	@Resource(name="memberDAO")
+
+	@Resource(name = "memberDAO")
 	public MemberDAO memberDAO;
-	
-	@Override //다형성(오버라이딩, 오버로딩)
+
+	@Override // 다형성(오버라이딩, 오버로딩)
 	public String insertMember(MemberVO vo) throws Exception {
-		
-		return memberDAO.insertMember(vo); //vo의 정보를 가지고 sql 연결
+
+		return memberDAO.insertMember(vo); // vo의 정보를 가지고 sql 연결
 	}
 
 	@Override
@@ -38,4 +38,20 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.selectMemberList(vo);
 	}
 
+	@Override
+	public MemberVO selectMemberDetail(String name) throws Exception {
+		return memberDAO.selectMemberDetail(name);
+	}
+
+	@Override
+	public int deleteMember(String userid) throws Exception {
+		return memberDAO.deleteMember(userid);
+	}
+
+	@Override
+	public int updateMember(MemberVO vo) throws Exception {
+		return memberDAO.updateMember(vo);
+	}
+
+	
 }

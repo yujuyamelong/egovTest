@@ -92,5 +92,44 @@ public class MemberController {
 		model.addAttribute("resultList", list);
 		return "member/memberList";
 	}
+	
+	/*회원상세 화면*/
+	   @RequestMapping("/memberDetail.do")
+	   public String selectMemberDetail(String name, ModelMap model) throws Exception {
+	      MemberVO vo = memberService.selectMemberDetail(name);
+	      model.addAttribute("memberVO", vo);
+	      
+	      return "member/memberDetail";
+	   }
+	   
+	   /*회원 삭제*/
+	   @RequestMapping("/memberDelete.do")
+	   public String deleteMember(String userid) throws Exception {
+		   memberService.deleteMember(userid);
+		  
+		   return "member/memberList";
+	   }
+	   
+	   /*회원 수정*/
+	   @RequestMapping("/memberModifyWrite.do")
+	   public String selectMemberModify(String userid, ModelMap model) throws Exception {
+		   
+		   MemberVO vo = memberService.selectMemberDetail(userid);
+		   model.addAttribute("vo", vo);
+		   return "member/memberModifyWrite";
+	   }
+	   
+	   @RequestMapping("/memberModifySave.do")
+	   public String updateMember(MemberVO vo) throws Exception {
+		   String message ="";
+		   int result = memberService.updateMember(vo);
+		   if(result == 1) {
+			   System.out.println("변경 완료");
+		   } else {
+			   System.out.println("변경 실패");
+		   }
+		   return "";
+	   }
+	   
 
 }

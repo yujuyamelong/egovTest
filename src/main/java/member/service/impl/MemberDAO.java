@@ -9,15 +9,15 @@ import member.service.MemberVO;
 
 //DataBase에 접근하는 method를 가지고 있는 Class에서 쓰인다.
 @Repository("memberDAO")
-public class MemberDAO extends EgovAbstractDAO{
+public class MemberDAO extends EgovAbstractDAO {
 
 	public String insertMember(MemberVO vo) {
-		return (String) insert("memberDAO.insertMember",vo);
+		return (String) insert("memberDAO.insertMember", vo);
 	}
 
 	public int selectMemberIdCheck(String userid) {
 		// TODO Auto-generated method stub
-		return (int) select("memberDAO.selectMemberIdCheck",userid);
+		return (int) select("memberDAO.selectMemberIdCheck", userid);
 	}
 
 	public int selectMemberCount(MemberVO vo) {
@@ -31,4 +31,18 @@ public class MemberDAO extends EgovAbstractDAO{
 	public List<?> selectMemberList(MemberVO vo) {
 		return list("memberDAO.selectMemberList", vo);
 	}
+
+	public MemberVO selectMemberDetail(String name) {
+		return (MemberVO) select("memberDAO.selectMemberDetail", name);
+	}
+
+	public int deleteMember(String userid) {
+		return (int) delete("memberDAO.deleteMember", userid);
+	}
+
+	public int updateMember(MemberVO vo) {
+		return (int) update("memberDAO.updateMember", vo);
+	}
+
+	
 }
