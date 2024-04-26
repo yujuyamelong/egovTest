@@ -32,8 +32,8 @@ public class MemberDAO extends EgovAbstractDAO {
 		return list("memberDAO.selectMemberList", vo);
 	}
 
-	public MemberVO selectMemberDetail(String name) {
-		return (MemberVO) select("memberDAO.selectMemberDetail", name);
+	public MemberVO selectMemberDetail(String userid) {
+		return (MemberVO) select("memberDAO.selectMemberDetail", userid);
 	}
 
 	public int deleteMember(String userid) {

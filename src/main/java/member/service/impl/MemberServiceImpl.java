@@ -39,8 +39,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberVO selectMemberDetail(String name) throws Exception {
-		return memberDAO.selectMemberDetail(name);
+	public MemberVO selectMemberDetail(String userid) throws Exception {
+		return memberDAO.selectMemberDetail(userid);
 	}
 
 	@Override

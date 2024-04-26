@@ -26,7 +26,7 @@ public class MemberController {
 	}
 
 	@RequestMapping("/memberWriteSave.do")
-	@ResponseBody // 메시지 전송할수 있다
+	@ResponseBody // 비동기 메시지 전달
 	public String insertMember(MemberVO vo) throws Exception {
 		String message = "";
 
@@ -93,10 +93,19 @@ public class MemberController {
 		return "member/memberList";
 	}
 	
-	/*회원상세 화면*/
+//	/*회원상세 화면*/
+//	   @RequestMapping("/memberDetail.do")
+//	   public String selectMemberDetail(String name, ModelMap model) throws Exception {
+//	      MemberVO vo = memberService.selectMemberDetail(name);
+//	      model.addAttribute("memberVO", vo);
+//	      
+//	      return "member/memberDetail";
+//	   }
+	   
+	   /*회원상세 화면*/
 	   @RequestMapping("/memberDetail.do")
-	   public String selectMemberDetail(String name, ModelMap model) throws Exception {
-	      MemberVO vo = memberService.selectMemberDetail(name);
+	   public String selectMemberDetail(String userid, ModelMap model) throws Exception {
+	      MemberVO vo = memberService.selectMemberDetail(userid);
 	      model.addAttribute("memberVO", vo);
 	      
 	      return "member/memberDetail";
@@ -107,8 +116,10 @@ public class MemberController {
 	   public String deleteMember(String userid) throws Exception {
 		   memberService.deleteMember(userid);
 		  
-		   return "member/memberList";
+		   return "redirect:/memberList.do";
 	   }
+	   
+	  
 	   
 	   /*회원 수정*/
 	   @RequestMapping("/memberModifyWrite.do")
@@ -121,14 +132,14 @@ public class MemberController {
 	   
 	   @RequestMapping("/memberModifySave.do")
 	   public String updateMember(MemberVO vo) throws Exception {
-		   String message ="";
+		 
 		   int result = memberService.updateMember(vo);
 		   if(result == 1) {
-			   message = "ok";
+			 System.out.println("변경완료");
 		   } else {
 			   System.out.println("변경 실패");
 		   }
-		   return message;
+		   return "redirect:/memberList.do";
 	   }
 	   
 

@@ -6,7 +6,7 @@
 	<typeAlias alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
 	<typeAlias alias="memberVO" type="member.service.MemberVO"/>
 	
-	<insert id="memberDAO.insertMember"> <!--//dao에 설정된 값과 동일하여야한다.-->
+	<insert id="memberDAO.insertMember"> <!--//dao에 설정된 값과 동일하여야한다.-->...
 		INSERT INTO MEMBER(USERID,
 						   PASS,
 						   NAME,
@@ -56,7 +56,7 @@
              TEL,
              ADDRESS
       FROM MEMBER
-      WHERE NAME = #name#   
+      WHERE USERID = #userid#   
    </select>
    
    <delete id="memberDAO.deleteMember">

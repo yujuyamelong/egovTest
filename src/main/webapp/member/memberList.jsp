@@ -58,7 +58,7 @@ caption {
 		<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 				<td>${result.rownum}</td>
-				<td><a href="memberDetail.do?name=${result.name}">${result.userid}</a></td>
+				<td><a href="memberDetail.do?userid=${result.userid}">${result.userid}</a></td>
 				<td>${result.pass}</td>
 				<td>${result.name}</td>
 				<td>${result.gender}</td>
@@ -68,6 +68,15 @@ caption {
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<div class="search_div" style="margin-top:20px; margin-left: 10%;">
+      <select name="search" id="search">
+         <option value="userid">아이디</option>
+         <option value="name">이름</option>
+      </select>
+      <input type="text" name="searchText" id="searchText">
+      <button type="submit">검색</button>
+   </div>
 	</form>
 </body>
 </html>

@@ -16,7 +16,7 @@ public interface MemberService {
 	public List<?> selectMemberList(MemberVO vo) throws Exception;
 
 	/* 회원상세 */
-	public MemberVO selectMemberDetail(String name) throws Exception;
+	public MemberVO selectMemberDetail(String userid) throws Exception;
 	
 	/* 회원삭제 */
 	public int deleteMember(String userid) throws Exception;
